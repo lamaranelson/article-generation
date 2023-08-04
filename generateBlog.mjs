@@ -15,7 +15,7 @@ import { prepareAndGetOrganicData } from "./createLocalMemory.mjs";
 import fs from "fs";
 import markdownpdf from "markdown-pdf";
 
-async function main(userRequest) {
+async function generateBlog(userRequest) {
   //   consoleLogWithColor(JSON.stringify(userRequest));
 
   const googleQueryPromise = getGoogleQueryFromUserRequest(userRequest.text);
@@ -142,10 +142,13 @@ async function main(userRequest) {
   consoleLogWithColor("\nPdf File written successfully.");
 }
 
-const userInput = "I want to write a short blog post about cancer";
+if (import.meta.url === `file://${process.argv[1]}`) {
+  const userInput = "I want to write a short blog post about cancer";
 
-const userRequest = {
-  text: userInput,
-};
+  const userRequest = {
+    text: userInput,
+  };
 
-main(userRequest);
+  generateBlog(userRequest);
+}
+export { generateBlog };
