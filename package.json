@@ -1,6 +1,6 @@
 {
   "name": "article-generation",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Generate structured content, and corresponding images with real time google search as a reference.",
   "main": "generateBlog.mjs",
   "scripts": {
