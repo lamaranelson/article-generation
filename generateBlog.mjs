@@ -15,10 +15,10 @@ import { prepareAndGetOrganicData } from "./createLocalMemory.mjs";
 import fs from "fs";
 import markdownpdf from "markdown-pdf";
 
-async function main(userRequest) {
+async function generateBlog(userRequest) {
   //   consoleLogWithColor(JSON.stringify(userRequest));
 
-  const googleQueryPromise = getGoogleQueryFromUserRequest(userRequest.text);
+  const googleQueryPromise = getGoogleQueryFromUserRequest(userRequest);
 
   const googleQuery = await Promise.all([googleQueryPromise]);
 
@@ -41,14 +41,14 @@ async function main(userRequest) {
   const vectorStore = vectorStorePromiseList[0];
 
   const blogTitle = await gptCompletion(
-    `Please write me a capitivating title for the blog I have written for the user whose initial request was this:\nREQUEST:\n${userRequest.text}\n\nTITLE:\n`
+    `Please write me a capitivating title for the blog I have written for the user whose initial request was this:\nREQUEST:\n${userRequest}\n\nTITLE:\n`
   );
 
   consoleLogWithColor(
-    `\nWriting short article for user request: "${userRequest.text}"`
+    `\nWriting short article for user request: "${userRequest}"`
   );
 
-  const generatedBlog = await getEngagingBlog(userRequest.text);
+  const generatedBlog = await getEngagingBlog(userRequest);
 
   consoleLogWithColor(`\nDone!`);
 
@@ -79,14 +79,14 @@ async function main(userRequest) {
   consoleLogWithColor(`\nDoing further operations...`, colors.Blue);
 
   consoleLogWithColor(
-    `\nScraping google and creating local memory for request: ${userRequest.text}`,
+    `\nScraping google and creating local memory for request: ${userRequest}`,
     colors.Blue
   );
 
   const improvedSectionsPromises = Object.keys(sections).map(
     (sectionHeading, index) => {
       return getImprovedSectionUsingLocalMemory(
-        userRequest.text,
+        userRequest,
         sections[sectionHeading],
         sectionHeading,
         vectorStore
@@ -142,10 +142,9 @@ async function main(userRequest) {
   consoleLogWithColor("\nPdf File written successfully.");
 }
 
-const userInput = "I want to write a short blog post about cancer";
+if (import.meta.url === `file://${process.argv[1]}`) {
+  const userInput = "I want to write a short blog post about cancer";
 
-const userRequest = {
-  text: userInput,
-};
-
-main(userRequest);
+  generateBlog(userInput);
+}
+export { generateBlog };
