@@ -122,10 +122,12 @@ async function generateBlog(userRequest) {
     "Header Image"
   );
 
+  const markdownContent = markdownHeaderImageContent + finalBlogImproved;
+
   // Save markdown content as .md file (not needed if you want to directly output .pdf)
   fs.writeFile(
     `${rootFolder}/${filename}.md`,
-    markdownHeaderImageContent + finalBlogImproved,
+    markdownContent,
     (err) => {
       if (err) {
         consoleLogWithColor(err, colors.Red);
@@ -140,6 +142,8 @@ async function generateBlog(userRequest) {
     .pipe(fs.createWriteStream(`${rootFolder}/${filename}.pdf`));
 
   consoleLogWithColor("\nPdf File written successfully.");
+  
+  return markdownContent;
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
