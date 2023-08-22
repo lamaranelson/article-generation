@@ -3,7 +3,7 @@ import { load } from "cheerio";
 import fs from "fs";
 import events from "events";
 import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
-import { FaissStore } from "langchain/vectorstores/faiss";
+import {HNSWLib } from "langchain/vectorstores/hnswlib";
 import { OpenAIEmbeddings } from "langchain/embeddings/openai";
 import colors, { consoleLogWithColor } from "./logColoredMessages.mjs";
 import { GoogleSearch } from "google-search-results-nodejs";
@@ -178,7 +178,7 @@ export async function prepareAndGetOrganicData(
   );
   consoleLogWithColor(`\nPreparing local memory...`);
 
-  const vectorStore = await FaissStore.fromDocuments(
+  const vectorStore = await HNSWLib.fromDocuments(
     docsToIndex,
     new OpenAIEmbeddings()
   );

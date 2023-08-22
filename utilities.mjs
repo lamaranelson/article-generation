@@ -267,9 +267,9 @@ export async function getImprovedSectionUsingLocalMemory(
   vectorStore
 ) {
 
-  const result = await vectorStore.similaritySearch(originalSection, 6);
+  const searchResults = await vectorStore.similaritySearch(originalSection, 6);
 
-  const relevantContentFromLocalMemory = result.reduce(
+  const relevantContentFromLocalMemory = searchResults.reduce(
     (accumulator, currentValue) => {
       if (currentValue) {
         accumulator +=
