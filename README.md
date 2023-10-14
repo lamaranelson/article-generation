@@ -1,7 +1,7 @@
 # Structured Content Generation with a Language Model, Image diffuser, and Real-time data.
 
 ## Overview
-The primary script to execute is `generateBlog.mjs`. This script imports a set of functions from `utilities.mjs` and `createLocalMemory.mjs` to generate content in a structured manner with an image, incorporating local memory to enhance the generated content.
+The primary script to execute is `generateBlog.mjs`. This script imports a set of functions from `utilities.mjs` and `createLocalMemory.mjs` to generate content in a structured manner with an image, incorporating local memory with a google search to enhance the generated content.
 
 ## Detailed Breakdown:
 
