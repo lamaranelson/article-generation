@@ -1,7 +1,7 @@
 # Structured Content Generation with a Language Model, Image diffuser, and Real-time data.
 
 ## Overview
-The primary script to execute is `generateBlog.mjs`. This script imports a set of functions from `utilities.mjs` and `createLocalMemory.mjs` to generate content in a structured manner, incorporating local memory to enhance the generated content.
+The primary script to execute is `generateBlog.mjs`. This script imports a set of functions from `utilities.mjs` and `createLocalMemory.mjs` to generate content in a structured manner with an image, incorporating local memory to enhance the generated content.
 
 ## Detailed Breakdown:
 
@@ -11,8 +11,8 @@ The `prepareAndGetOrganicData` function in the `createLocalMemory.mjs` file is u
 ### Creating an Outline:
 The `getEngagingBlog` function in `utilities.mjs` is used to create an outline for the blog post. It uses a template to generate a prompt for the GPT model, which includes the user's request. The GPT model then generates an outline for the content based on this prompt.
 
-### Determining Image Placement:
-The `getHeaderImageForBlog` function is used to determine the header image for the blog. It uses a template to generate a prompt for the GPT model, which includes the user's request. The GPT model then generates a prompt for the Stability model, which is used to generate the image.
+###   Generating Image and Determining Image Placement:
+The `getHeaderImageForBlog` function is used to generate an Image through the Stability API as the header image. It uses a template to generate a prompt for the GPT model, which includes the user's request. The GPT model then generates a prompt for the stable diffusion model, which is used to generate the image.
 
 ### Generating the content:
 The `getImprovedSectionUsingLocalMemory` function is used to write the actual content. It iterates over each section in the outline. For each section, it does the following:
