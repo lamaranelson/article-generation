@@ -24,5 +24,5 @@ The `getImprovedSectionUsingLocalMemory` function is used to write the actual co
 ### Finalizing the content:
 The `refineFinalBlog` function is used to finalize the content. It combines all the sections, refines the content to remove redundancies, and adds a professional touch. The finalized content is then saved as a Markdown, and PDF file. 
 
-The output for the query can be visualized in Read-MD.ipynb
+The output for the query can be visualized in `Read-MD.ipynb`
 
