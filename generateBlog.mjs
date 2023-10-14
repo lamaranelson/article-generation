@@ -147,7 +147,7 @@ async function generateBlog(userRequest) {
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
-  const userInput = "I want to write a short blog post about cancer";
+  const userInput = "I want to write a short blog post about the Amazon Forest";
 
   generateBlog(userInput);
 }
