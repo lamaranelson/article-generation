@@ -17,12 +17,11 @@ The `getHeaderImageForBlog` function is used to generate an Image through the St
 ### Generating the content:
 The `getImprovedSectionUsingLocalMemory` function is used to write the actual content. It iterates over each section in the outline. For each section, it does the following:
 
-- Research: It uses the model and retrieved google data to do some research on the section.
-- Writing the Section: It uses the model and local memory to write the section based on the research notes.
-- Improving the Section: It uses the model to improve the initial draft of the section.
+- Research: It uses the model to do some research on the section.
+- Writing the Section: It uses Google to retrieve some more recent data and then saves the Google research in a local memory instance. After that, we improve the article based on the research notes.
 
 ### Finalizing the content:
-The `refineFinalBlog` function is used to finalize the content. It combines all the sections, refines the content to remove redundancies, and adds a professional touch. The finalized content is then saved as a Markdown, and PDF file. 
+The `refineFinalBlog` function is used to finalize the content. It combines all the sections, refines the content to remove redundancies, and adds a human touch. The finalized content is then saved as a Markdown, and PDF file. 
 
 The output for the query can be visualized in `Read-MD.ipynb`
 
