@@ -5,7 +5,6 @@ import { HumanMessage, SystemMessage } from "langchain/schema";
 import fetch from "node-fetch";
 import dotenv from "dotenv";
 import colors, { consoleLogWithColor } from "./logColoredMessages.mjs";
-
 dotenv.config();
 
 export async function gptCompletion(

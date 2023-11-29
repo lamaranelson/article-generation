@@ -1,27 +1,79 @@
-# Structured Content Generation with a Language Model, Image diffuser, and Real-time data.
+# Structured Content Generation with a Language Model, Image Diffuser, and Real-time Data
 
 ## Overview
-The primary script to execute is `generateBlog.mjs`. This script imports a set of functions from `utilities.mjs` and `createLocalMemory.mjs` to generate content in a structured manner with an image, incorporating local memory with a Google search to enhance the generated content.
 
-## Detailed Breakdown:
+This project utilizes a language model to generate structured content from a simple prompt, complemented by images created through a diffusion model, and enhanced with real-time data from Google searches. The main entry point for content generation is the `generateBlog.mjs` script located in the `src` directory.
 
-### Local Memory Creation:
-The `prepareAndGetOrganicData` function in the `createLocalMemory.mjs` file is used to create local memory. It fetches Google search results related to the user's request, scrapes the content, splits the content into documents, and generates embeddings for these documents using OpenAI's embeddings. It returns a Vector store, which stores these documents and their corresponding embeddings in an index, enabling efficient nearest neighbor search.
+## How to Run
 
-### Creating an Outline:
-The `getEngagingBlog` function in `utilities.mjs` is used to create an outline for the blog post. It uses a template to generate a prompt for the GPT model, which includes the user's request. The GPT model then generates an outline for the content based on this prompt.
+### Installation
 
-###   Generating Image and Determining Image Placement:
-The `getHeaderImageForBlog` function is used to generate an Image through the Stability API as the header image. It uses a template to generate a prompt for the GPT model, which includes the user's request. The GPT model then generates a prompt for the stable diffusion model, which is used to generate the image.
+Before running the project, install the necessary dependencies:
 
-### Generating the content:
-The `getImprovedSectionUsingLocalMemory` function is used to write the actual content. It iterates over each section in the outline. For each section, it does the following:
+```
+npm install
+```
 
-- Research: It uses the model to do some research on the section.
-- Writing the Section: It uses Google to retrieve some more recent data and then saves the Google research in a local memory instance. After that, we improve the article based on the research notes.
+### Starting the Application
 
-### Finalizing the content:
-The `refineFinalBlog` function is used to finalize the content. It combines all the sections, refines the content to remove redundancies, and adds a human touch. The finalized content is then saved as a Markdown, and PDF file. 
+To start the content generation process, use the `npm start` command, which is configured to execute the `generateBlog.mjs` script.
 
-The output for the query can be visualized in `Read-MD.ipynb`
+```
+npm start
+```
 
+## Detailed Breakdown
+
+### Local Memory Creation
+
+The `prepareAndGetOrganicData` function within `src/createLocalMemory.mjs` creates a local vector storage instance. It scrapes Google search results based on the user's request, processes the content, and uses OpenAI's embeddings to generate a vector store for efficient searching.
+
+### Creating an Outline
+
+The `getEngagingBlog` function in `src/utilities.mjs` crafts an outline for the blog post. It prompts a GPT model with the user's request to generate a structured outline.
+
+### Generating the Header Image
+
+The `getHeaderImageForBlog` function in `src/utilities.mjs` generates a header image using the Stability API. It formulates a prompt for the GPT model based on the user's request, which is then used to guide the image generation process.
+
+### Content Generation
+
+The `getImprovedSectionUsingLocalMemory` function iterates over each section of the outline, performing research and integrating recent data from Google. This data is stored in a local memory instance and used to enhance the content.
+
+### Finalizing the Content
+
+The `refineFinalBlog` function in `src/utilities.mjs` finalizes the content by combining all sections, refining the narrative, and ensuring a professional touch. The content is saved in both Markdown and PDF formats.
+
+### Output Visualization
+
+The generated content can be visualized using the `Read-MD.ipynb` in a jupyter notebook, which renders the Markdown content as HTML for easy viewing.
+
+## Project Structure
+
+- `src/`: Contains all the source code for content generation.
+  - `generateBlog.mjs`: The main script to run for generating blog posts.
+  - `createLocalMemory.mjs`: Functions for creating and managing local memory with scraped data.
+  - `utilities.mjs`: Helper functions for content generation and image creation.
+  - `logColoredMessages.mjs`: Utility for logging messages with color in the console.
+- `package.json`: Project metadata and dependencies.
+- `.gitignore`: Specifies files and directories to be ignored by Git.
+- `README.md`: Documentation for the project.
+
+Please ensure you have the necessary environment variables set before running the project, as these are required for accessing various APIs and services.
+
+This is how the `.env` should look like:
+
+```
+OPENAI_API_KEY =
+OPENAI_CHAT_MODEL =
+OPENAI_COMPLETION_MODEL =
+TEMPERATURE = 0.3
+GPT_4_COMPLETION = false # put true for GPT4 completion in stead of 3.5
+STABILITY_API_KEY =
+STABILITY_ENGINE_ID =
+SERPAPI_API_KEY =
+```
+
+## Contributing
+
+Contributions are welcome. Please open an issue first to discuss what you would like to change or add. You can always fork the repo and raise a PR.
