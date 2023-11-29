@@ -64,14 +64,14 @@ Please ensure you have the necessary environment variables set before running th
 This is how the `.env` should look like:
 
 ```
-OPENAI_API_KEY =
-OPENAI_CHAT_MODEL =
-OPENAI_COMPLETION_MODEL =
+OPENAI_API_KEY = ""
+OPENAI_CHAT_MODEL = "gpt-4-1106-preview"
+OPENAI_COMPLETION_MODEL = "gpt-3.5-turbo-0613"
 TEMPERATURE = 0.3
-GPT_4_COMPLETION = false # put true for GPT4 completion in stead of 3.5
-STABILITY_API_KEY =
-STABILITY_ENGINE_ID =
-SERPAPI_API_KEY =
+GPT_4_COMPLETION = false # put true for GPT4 Turbo completion in stead of 3.5
+STABILITY_API_KEY = ""
+STABILITY_ENGINE_ID = ""
+SERPAPI_API_KEY = ""
 ```
 
 ## Contributing
