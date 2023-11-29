@@ -46,7 +46,7 @@ The `refineFinalBlog` function in `src/utilities.mjs` finalizes the content by c
 
 ### Output Visualization
 
-The generated content can be visualized using the `Read-MD.ipynb` in a jupyter notebook, which renders the Markdown content as HTML for easy viewing.
+The generated content can be visualized by opening `Read-MD.ipynb`, which renders the Markdown content as HTML for easy viewing.
 
 ## Project Structure
 
