@@ -2,13 +2,27 @@
 
 ## Overview
 
-This project utilizes a language model to generate structured content from a simple prompt, complemented by images created through a diffusion model, and enhanced with real-time data from Google searches. The main entry point for content generation is the `generateBlog.mjs` script located in the `src` directory.
+This project utilizes a language model to generate structured content from a simple prompt (Prompt has to be declared in the `userInput` variable in `generateBlog.mjs`), complemented by images created through a diffusion model, and enhanced with real-time data from Google searches. The main entry point for content generation is the `generateBlog.mjs` script located in the `src` directory.
 
 ## How to Run
 
 ### Installation
 
-Before running the project, install the necessary dependencies:
+Before running the project, clone the repo, and install the necessary dependencies:
+
+1.Clone
+
+```
+git clone https://github.com/lamaranelson/article-generation.git
+```
+
+2.Navigate to the project directory:
+
+```
+cd article-generation
+```
+
+3.Install dependencies:
 
 ```
 npm install
