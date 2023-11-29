@@ -66,12 +66,12 @@ This is how the `.env` should look like:
 ```
 OPENAI_API_KEY = ""
 OPENAI_CHAT_MODEL = "gpt-4-1106-preview"
-OPENAI_COMPLETION_MODEL = "gpt-3.5-turbo-0613"
+OPENAI_COMPLETION_MODEL = "gpt-3.5-turbo-16k-0613"
 TEMPERATURE = 0.3
-GPT_4_COMPLETION = false # put true for GPT4 Turbo completion in stead of 3.5
-STABILITY_API_KEY = ""
-STABILITY_ENGINE_ID = ""
-SERPAPI_API_KEY = ""
+GPT_4_COMPLETION = false # Put true for GPT4 Turbo completion in stead of 3.5
+STABILITY_API_KEY = "" # For image generation
+STABILITY_ENGINE_ID = "stable-diffusion-xl-1024-v1-0"
+SERPAPI_API_KEY = "" # For Google search
 ```
 
 ## Contributing
