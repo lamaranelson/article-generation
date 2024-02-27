@@ -60,7 +60,7 @@ The `refineFinalBlog` function in `src/utilities.mjs` finalizes the content by c
 
 ### Output Visualization
 
-The generated content can be visualized by opening `Read-MD.ipynb`, which renders the Markdown content as HTML for easy viewing.
+An example of the generated content can be visualized by opening `Read-MD.ipynb`, which renders the Markdown content as HTML for easy viewing.
 
 ## Project Structure
 
@@ -69,9 +69,7 @@ The generated content can be visualized by opening `Read-MD.ipynb`, which render
   - `createLocalMemory.mjs`: Functions for creating and managing local memory with scraped data.
   - `utilities.mjs`: Helper functions for content generation and image creation.
   - `logColoredMessages.mjs`: Utility for logging messages with color in the console.
-- `package.json`: Project metadata and dependencies.
-- `.gitignore`: Specifies files and directories to be ignored by Git.
-- `README.md`: Documentation for the project.
+
 
 Please ensure you have the necessary environment variables set before running the project, as these are required for accessing various APIs and services.
 
